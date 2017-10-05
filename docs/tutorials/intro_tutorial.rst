@@ -826,13 +826,12 @@ Now, we can set up and run the BatchRunner:
     # run.py
     from mesa.batchrunner import BatchRunner
 
-    fixed_params = {"width": 10,
-                    "height": 10}  
-    variable_params = {"N": range(10, 500, 10)}
+    params = {"width": 10,
+              "height": 10,
+              "N": range(10, 500, 10)}  #variable parameter
     
     batch_run = BatchRunner(MoneyModel, 
-                            fixed_parameters=fixed_params,
-                            variable_parameters=variable_params, 
+                            parameter_values = params,
                             iterations=5, 
                             max_steps=100,
                             model_reporters={"Gini": compute_gini})
